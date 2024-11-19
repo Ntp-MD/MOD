@@ -1,0 +1,137 @@
+<div>
+	<div class="main-nav">
+		<div class="main-nav-menu">
+			<div class="main-nav-logo">
+				MOD
+			</div>
+			<div class="nav-menu-group">
+				<a class="nav-menu-link" href="">Panel</a>
+				<a class="nav-menu-link" href="">Slide-1</a>
+				<a class="nav-menu-link" href="">Slide-2</a>
+				<a class="nav-menu-link" href="">Slide-3</a>
+				<a class="nav-menu-link" href="">Slide-4</a>
+			</div>
+
+		</div>
+		<div class="main-nav-toggle">
+			<div></div>
+			<div>M <br> E<br> N<br> U</div>
+			<div></div>
+		</div>
+	</div>
+
+
+</div>
+
+
+<style>
+	#main-nav {
+		position: fixed;
+		top: 0;
+		left: -30vw;
+		z-index: 1000;
+		width: fit-content;
+		height: 100%;
+		background: transparent;
+		transition: .5s;
+
+	}
+
+	#main-nav * {
+		transition: .5s;
+	}
+
+	.main-nav {
+		position: relative;
+		display: flex;
+		height: 100%;
+		align-items: center;
+	}
+
+	.main-nav-logo {
+		font-size: 3vw;
+		font-weight: 900;
+		color: var(--color2);
+		padding: 3vw;
+
+	}
+
+	.nav-menu-group {
+		display: flex;
+		flex-direction: column;
+		gap: 1vw;
+		padding-inline-start: 3vw;
+	}
+
+	.main-nav-menu {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 30vw;
+		background: var(--color);
+	}
+
+	.main-nav-toggle {
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+		place-content: center;
+		place-items: center;
+		height: 100%;
+		background: transparent;
+	}
+
+	#main-nav.active .main-nav-toggle {
+		background: linear-gradient(to right, var(--color) 0, var(--color) 50%, transparent 50%, transparent 100%);
+	}
+
+	.main-nav-toggle>div:nth-child(2) {
+		font-size: 20px;
+		text-align: center;
+		white-space: nowrap;
+		font-weight: 600;
+		background: var(--color);
+		color: var(--color2);
+		padding: 10px;
+		border-radius: 30px;
+	}
+
+	.main-nav-toggle>div:not(div:nth-child(2)) {
+		width: 5px;
+		height: 10%;
+		background: var(--color2);
+		border-radius: 30px;
+	}
+
+
+	#main-nav.active {
+		left: 0;
+	}
+
+	#main-nav.active .main-nav-toggle>div:nth-child(2) {
+		transform: rotate(360deg);
+		border: 2px solid var(--color2);
+	}
+
+	#main-nav.active .main-nav-toggle>div:not(div:nth-child(2)) {
+		width: 2px;
+		height: 100%;
+		background: var(--color2);
+	}
+</style>
+
+
+<script>
+
+	$(document).on('click', function (e) {
+		if ($(e.target).closest('.main-nav-toggle').length) {
+			$(' #main-nav ').toggleClass('active');
+		} else {
+			$(' #main-nav ').removeClass('active');
+		}
+	});
+
+
+
+
+</script>
