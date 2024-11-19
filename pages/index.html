@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head id="header">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+
+<header id="nav-header"></header>
+
+<body>
+
+	<div id="slide"></div>
+
+</body>
+
+
+
+
+
+<script>
+	$(document).ready(async () => {
+		$('html *[id]').each(async function () {
+			for (const folder of ['components', 'pages'])
+				if (await $.get(`/${folder}/${this.id}.html`).catch(() => null))
+					return $(this).html(await $.get(`/${folder}/${this.id}.html`));
+		});
+	});
+</script>
+
+
+
+</html>

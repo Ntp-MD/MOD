@@ -1,0 +1,107 @@
+<div class="header-nav">
+	<div class="header-nav-logo">
+		MOD
+	</div>
+	<div class="header-nav-menu">
+		<a class="header-nav-link" target="_self" href="/page/font-family.html">Font Family</a>
+		<a class="header-nav-link" target="_self" href="/page/mod-slide1.html">Slide-1</a>
+		<a class="header-nav-link" target="_self" href="">Slide-2</a>
+		<a class="header-nav-link" target="_self" href="">Slide-3</a>
+		<a class="header-nav-link" target="_self" href="">Slide-4</a>
+	</div>
+	<div class="toggle-mode">
+		<div class="switch-mode">
+			<img src="/assets/icon/day-and-night.png" alt="">
+		</div>
+	</div>
+</div>
+
+
+
+<style>
+	header {
+		position: sticky;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+
+	}
+
+	.header-nav {
+		display: grid;
+		grid-template-columns: 20% 50% 20%;
+		place-content: center;
+		place-items: center;
+		background: var(--color);
+		height: 5vw;
+		width: 100vw;
+	}
+
+	.header-nav-menu {
+		display: flex;
+		justify-content: flex-end;
+		gap: 1vw;
+	}
+
+	.header-nav-logo {
+		font-size: 2vw;
+		font-weight: 900;
+		color: var(--color2);
+	}
+
+
+	.toggle-mode {
+		position: fixed;
+		top: 5px;
+		right: 5px;
+	}
+
+	.switch-mode {
+		position: relative;
+		aspect-ratio: 1;
+		width: fit-content;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: .5s;
+	}
+
+
+	.switch-mode img {
+		width: 2vw;
+		aspect-ratio: 1;
+		transition: .5s;
+		z-index: 0;
+		border-radius: 50%;
+		user-select: none;
+		transform: rotate(30deg);
+	}
+
+	body.dark-mode .switch-mode img {
+		transform: rotate(-150deg);
+	}
+</style>
+
+
+
+
+<script>
+	$(document).ready(function () {
+		if (localStorage.getItem('darkMode') === 'enabled') {
+			$('body').addClass('dark-mode');
+		}
+	});
+
+	$(document).on('click', function (e) {
+		if ($(e.target).closest('.toggle-mode').length) {
+			$('body').toggleClass('dark-mode');
+
+			// Save the mode in local storage
+			if ($('body').hasClass('dark-mode')) {
+				localStorage.setItem('darkMode', 'enabled');
+			} else {
+				localStorage.setItem('darkMode', 'disabled');
+			}
+		}
+	});
+</script>
