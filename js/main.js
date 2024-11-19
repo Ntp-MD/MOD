@@ -1,10 +1,3 @@
-$(document).ready(async () => {
-	$('html *[id]').each(async function () {
-		for (const folder of ['components', 'pages'])
-			if (await $.get(`/${folder}/${this.id}.html`).catch(() => null))
-				return $(this).html(await $.get(`/${folder}/${this.id}.html`));
-	});
-});
 
 
 $(document).ready(function () {
@@ -23,5 +16,26 @@ $(document).on('click', function (e) {
 		} else {
 			localStorage.setItem('darkMode', 'disabled');
 		}
+	}
+});
+
+
+$(document).ready(function () {
+	if (window.location.hostname === 'ntp-md.github.io') {
+		$('link[rel="stylesheet"]').each(function () {
+			var href = $(this).attr('href');
+			$(this).attr('href', href.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
+		});
+		$('img').each(function () {
+			var src = $(this).attr('src');
+			$(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
+		});
+		$('script').each(function () {
+			var src = $(this).attr('src');
+
+			if (src && src.startsWith('/')) {
+				$(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
+			}
+		});
 	}
 });
