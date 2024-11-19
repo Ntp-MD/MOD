@@ -23,12 +23,21 @@
 <script>
 	$(document).ready(async () => {
 		$('html *[id]').each(async function () {
-			for (const folder of ['components', 'pages'])
-				if (await $.get(`/${folder}/${this.id}.html`).catch(() => null))
-					return $(this).html(await $.get(`/${folder}/${this.id}.html`));
+			for (const folder of ['components', 'pages']) {
+				let 	path = `/${folder}/${this.id}.html`; 
+				let content = await $.get(path).catch(() => null);
+				if (!content) {
+					path = `https://ntp-md.github.io/MOD/${folder}/${this.id}.html`;
+					content = await $.get(path).catch(() => null);
+				}
+				if (content){ 
+					$(this).html(content);
+				}
+			}
 		});
 	});
 </script>
+
 
 
 
