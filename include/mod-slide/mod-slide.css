@@ -30,6 +30,7 @@
 		filter: brightness(.5);
 		pointer-events: none;
 		user-select: none;
+	
 	}
 
 	.box_items img {
@@ -38,8 +39,6 @@
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
-		pointer-events: none;
-		user-select: none;
 	}
 
 	.box_items article {
