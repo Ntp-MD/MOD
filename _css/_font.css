@@ -1,0 +1,54 @@
+.font-family {
+	position: relative;
+}
+
+.font-group {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2vw;
+}
+
+.font-items {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	border-radius: 15px;
+	box-shadow: 0 0 3px 0 #ccc;
+	padding: 1vw 2vw;
+	min-height: 8vw;
+	height: fit-content;
+}
+
+.font-items:hover {
+	box-shadow: 0 0 3px 0 var(--color3);
+}
+
+.font-items span {
+	font-size: 1.5vw;
+	font-weight: 600;
+}
+
+.font-text {
+	min-height: 40px;
+}
+
+.font-items .copy-url {
+	position: relative;
+	font-size: clamp(14px, 1vw, 16px);
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 5px;
+	background: var(--color2);
+	color: var(--color);
+	text-transform: uppercase;
+	width: fit-content;
+}
+
+
+.font-items .copy-url::before {
+	content: "Copy Url";
+}
+
+.copy-url.done::before {
+	content: "URL copied";
+}

@@ -1,0 +1,61 @@
+header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+
+}
+
+.header-nav {
+	display: grid;
+	grid-template-columns: 20% 50% 20%;
+	place-content: center;
+	place-items: center;
+	background: var(--color);
+	height: 5vw;
+	width: 100vw;
+}
+
+.header-nav-menu {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1vw;
+}
+
+.header-nav-logo {
+	font-size: 2vw;
+	font-weight: 900;
+	color: var(--color2);
+}
+
+
+.toggle-mode {
+	position: fixed;
+	top: 5px;
+	right: 5px;
+}
+
+.switch-mode {
+	position: relative;
+	aspect-ratio: 1;
+	width: fit-content;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: .5s;
+}
+
+
+.switch-mode img {
+	width: 2vw;
+	aspect-ratio: 1;
+	transition: .5s;
+	z-index: 0;
+	border-radius: 50%;
+	user-select: none;
+	transform: rotate(30deg);
+}
+
+body.dark-mode .switch-mode img {
+	transform: rotate(-150deg);
+}
