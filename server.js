@@ -5,33 +5,31 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Define paths
-const cssDir = path.join(__dirname, 'public/_css');
-const indexFile = path.join(__dirname, 'index.html');
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files (CSS, JS, etc.)
+// Serve static files
 app.use('/_css', express.static(path.join(__dirname, 'public/_css')));
+app.use('/_js', express.static(path.join(__dirname, 'public/_js')));
 
-// Serve the index.html explicitly
-app.get('/', (req, res) => {
-    res.sendFile(indexFile);
-});
-
-// API endpoint to list all CSS files
+// API endpoint for listing CSS files
 app.get('/list-css-files', (req, res) => {
+    const cssDir = path.join(__dirname, 'public/_css');
     fs.readdir(cssDir, (err, files) => {
         if (err) {
-            console.error('Error reading CSS directory:', err);
             return res.status(500).json({ error: 'Unable to read CSS directory' });
         }
-
-        // Filter for CSS files only
         const cssFiles = files.filter(file => file.endsWith('.css'));
         res.json(cssFiles);
     });
 });
 
-// Start the server
+// Render the HTML page with dynamic EJS template
+app.get('/', (req, res) => {
+    res.render('index'); // Render views/index.ejs
+});
+
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });

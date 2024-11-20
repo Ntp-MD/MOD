@@ -1,9 +1,0 @@
-{
-  "devDependencies": {
-    "gulp": "^5.0.0",
-    "gulp-append": "^0.3.4"
-  },
-  "dependencies": {
-    "express": "^4.21.1"
-  }
-}
