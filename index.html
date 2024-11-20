@@ -6,25 +6,25 @@
 	<title>Document</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="/js/core.js"></script>
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/style.css">
+<script src="https://ntp-md.github.io/MOD/js/core.js"></script>
+<link rel="stylesheet" href="https://ntp-md.github.io/MOD/css/main.css">
+<link rel="stylesheet" href="https://ntp-md.github.io/MOD/css/style.css">
 <script>
 	$(document).ready(function () {
 		if (window.location.hostname === 'ntp-md.github.io') {
 			$('link[rel="stylesheet"]').each(function () {
 				var href = $(this).attr('href');
-				$(this).attr('href', href.replace(/^\/(.*)$/, 'https://ntp-m.github.io/MOD/$1'));
+				$(this).attr('href', href.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
 			});
 			$('img').each(function () {
 				var src = $(this).attr('src');
-				$(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-m.github.io/MOD/$1'));
+				$(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
 			});
 			$('script').each(function () {
 				var src = $(this).attr('src');
 
 				if (src && src.startsWith('/')) {
-					$(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-m.github.io/MOD/$1'));
+					$(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
 				}
 			});
 		}
@@ -44,6 +44,6 @@
 </body>
 
 
-<script src="/js/main.js"></script>
+<script src="https://ntp-md.github.io/MOD/js/main.js"></script>
 
 </html>
