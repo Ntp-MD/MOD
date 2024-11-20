@@ -1,26 +1,6 @@
 <link rel="stylesheet" href="/include/mod-slide/mod-slide.css">
 
-<script>
-	$(document).ready(function () {
-		if (window.location.hostname === 'ntp-md.github.io') {
-			$('link[rel="stylesheet"]').each(function () {
-				var href = $(this).attr('href');
-				$(this).attr('href', href.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
-			});
-			$('img').each(function () {
-				var src = $(this).attr('src');
-				$(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
-			});
-			$('script').each(function () {
-				var src = $(this).attr('src');
 
-				if (src && src.startsWith('/')) {
-					$(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/MOD/$1'));
-				}
-			});
-		}
-	});
-</script>
 
 
 <div id="container_box_slide">
